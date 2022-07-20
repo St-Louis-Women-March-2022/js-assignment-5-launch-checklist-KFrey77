@@ -2,62 +2,59 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-Here is the HTML formatting for our mission target div.
-     <script>
-        const div = document.getElementById("myFetch")
-        div.innerHTML =
-        <ol>
-            <li>Name: ${myFetch.temp}</li>
-            <li>Diameter: ${myFetch.diameter}</li>
-            <li>Star:  ${myFetch.star}</li>
-            <li>Distance from Earth ${myFetch.distanceFromEarth}</li>
-            <li>Number of Moons: ${myFetch.numberOfMoons}</li>
-                     </ol>
-                     <img src="">
-        </script>
-                <h2>"Mission Destination"</h2>
-                <div id = "myFetch"></div>
+//Here is the HTML formatting for our mission target div.
+    
+        //const div = document.getElementById("myFetch")
+        //div.innerHTML =
+      //   <ol>
+      //       <li>Name: ${myFetch.temp}</li>
+      //       <li>Diameter: ${myFetch.diameter}</li>
+      //       <li>Star:  ${myFetch.star}</li>
+      //       <li>Distance from Earth ${myFetch.distanceFromEarth}</li>
+      //       <li>Number of Moons: ${myFetch.numberOfMoons}</li>
+      //                </ol>
+      //                <img src="">
+        
+              
+   }
+
+
+function validateInput(testInput) {
    
-
-
-function validateInput() {
-    <script>
-    window.addEventListener("load", function() {
-       let form = document.querySelector("form");
-       form.addEventListener("submit", function(event) {
-          let pilotName = document.querySelector("input[name=pilot name]");
-          let copilotName = document.querySelector("input[name=copilot name]");
-          let fuelLevel = document.querySelector("input[name=fuel level]");
-          let cargoMass = document.querySelector("input[name=cargo mass]");
-          if (pilotName.value === "" || coPilotName.value === "" || fuelLevel.value = "" || cargoMass.value = "") {
-             alert("Empty");
-          if (isNaN(fuelLevel.value)|| isNan(cargoMass.value)); 
-             alert("Not a number.");
-          if (fuelLevel.value === number || cargoMass.value === number);
-              alert("is a number.");
-            event.preventDefault();
-          }
-       });
-    });
- </script>
-}
+      if (testInput === "") {
+         return "Empty";
+       } else if (isNaN(testInput)) {
+         return "Not a number."
+        } else {
+         return "Is a number." 
+   };
+   
+    
+};
+ 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
-    let pilot = document.getElementById("pilotName")
-    let copilot = document.getElementById("copilotName")
-    let fuelLevel = document.getElementById("fuelLevel")
-    let cargoMass = document.getElementById("cargoMass")
-    
-    <form action="" method="POST">
+   
+   let pilot = document.getElementById("pilotName")
+   let copilot = document.getElementById("copilotName")
+   let fuelLevel = document.getElementById("fuelLevel")
+   let cargoMass = document.getElementById("cargoMass")
+   
+   
     <div id = "list"> <ul>
+      <form action = "">
     <li><label>Pilot Name <input type="text" name="pilot name"></label></li>
     <li><label>Co-pilot Name <input type="text" name="copilot name"></label></li>
     <li><label>Fuel Level <input type="number" name="fuel level"/></label></li>
     <li><label>Cargo Mass <input type="number" name="cargo mass"/></label></li></ul>
-    <button>Submit</button></div>
+    <button>Submit</button></form></div>
 
     
- </form>
+    if (pilotName.value === "" || coPilotName.value === "" || fuelLevel.value = "" || cargoMass.value = "") {
+      window.alert("Empty");
+   else if (isNaN(fuelLevel.value)|| isNan(cargoMass.value)); 
+      window.alert("Not a number.");
+   else   window.alert("is a number.");
  
 }
 
