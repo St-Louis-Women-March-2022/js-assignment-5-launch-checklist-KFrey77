@@ -3,20 +3,30 @@
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
 //Here is the HTML formatting for our mission target div.
-    
-        //const div = document.getElementById("myFetch")
-        //div.innerHTML =
-      //   <ol>
-      //       <li>Name: ${myFetch.temp}</li>
-      //       <li>Diameter: ${myFetch.diameter}</li>
-      //       <li>Star:  ${myFetch.star}</li>
-      //       <li>Distance from Earth ${myFetch.distanceFromEarth}</li>
-      //       <li>Number of Moons: ${myFetch.numberOfMoons}</li>
-      //                </ol>
-      //                <img src="">
+<html>
+    <head>
+      <div>
+         <script>
+         function missionTarget() {
+        document.getElementById("missionTarget").innerHTML = "Mission Target"
+         };
+        </script>
+        <body>
+        <h2>Mission Destination</h2>
+        <ol>
+            <li>Name: ${name}</li>
+            <li>Diameter: ${diameter}</li>
+            <li>Star:  ${star}</li>
+            <li>Distance from Earth ${distance}</li>
+            <li>Number of Moons: ${moons}</li>
+                     </ol>
+                     <img src="imageUrl"></img>
+                     </body>    
+        </div>
         
-              
-   }
+              </head>
+               </html>
+   };
 
 
 function validateInput(testInput) {
@@ -58,7 +68,7 @@ async function myFetch() {
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         return response.json();
 
-      console.log(response);    
+      //console.log(response);    
     }
 );   
 
@@ -66,7 +76,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-    let planets = myFetch(Math.random())
+    planets = myFetch(Math.random());
     return planets
     
 }
