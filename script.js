@@ -1,10 +1,10 @@
 //const { formSubmission } = require("./scriptHelper");
 
 // Write your JavaScript code here!
-let pilot = []
-let copilot = []
-let fuelLevels = []
-let cargoMass = []
+// let pilot = []
+// let copilot = []
+// let fuelLevels = []
+// let cargoMass = []
 
 
 
@@ -20,27 +20,48 @@ window.addEventListener("load", function() {
        console.log(listedPlanets);
    }).then(function () {
        console.log(listedPlanets);
-       pickPlanet(listedPlanets);
-       addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl)
-       name = []
-       diameter = []
-       star = []
-       distance = []
-       moons = []
-       imgUrl = []
-    return result
+       let selectedPlanet = pickPlanet(listedPlanets);
+       console.log(selectedPlanet)
+       addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image)
+    //    name = []
+    //    diameter = []
+    //    star = []
+    //    distance = []
+    //    moons = []
+    //    image = []
+    // return result
     
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
    })
-        
+   let list = document.getElementById("faultyItems")     
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
      event.preventDefault();
-       pilot = document.getElementById("pilotName").value;
-       copilot = document.getElementById("copilotName").value;
-       fuelLevels = document.getElementById("fuelLevel").value;
-       cargoMass = document.getElementById("cargoMass").value;
-       formSubmission(document, pilot, copilot, fuelLevels, cargoMass)
+       let pilot = document.getElementById("pilotName").value;
+       let copilot = document.getElementById("copilotName").value;
+       let fuelLevels = Number(document.getElementById("fuelLevel").value);
+       let cargoLevel = Number(document.getElementById("cargoMass").value);
+       console.log("fuelLevel:script.js" + fuelLevels)
+       console.log("cargoMass:script.js" + cargoLevel)
+       
+       launchStatus.innerHTML= `
+       <div>
+       <ol>
+       `
+       pilotStatus.innerHTML= `Pilot ${pilot.value} is ready for launch.`
+       copilotStatus.innterHTML= `Co-pilot ${copilot.value} is ready for launch.`
+    
+   if (fuelLevel.value > 10000 && cargoMass.value < 200)   {
+       launchStatus.innerHTML= 'Shuttle is ready for launch.'
+       cargoStatus.innerHTML= 'Cargo mass low enough for launch.'
+       faultyItems.style.visibility= 'visible'
+    } else if (fuelLevel.value < 10000 && cargoMass.value > 200)
+       launchStatus.innerHTML= 'Shuttle is not ready for launch.'
+       faultyItems.style.visibility= 'visible'
+    `</ol>
+    </div> `
+
+       formSubmission(document, list, pilot, copilot, fuelLevels, cargoLevel)
        
        
    });
